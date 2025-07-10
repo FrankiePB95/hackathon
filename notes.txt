@@ -1,0 +1,5 @@
+OLS trendline in Plotly for regression pattern detection -- find out
+clean up charts further
+**Hypothesis:** We will witness lower attrition levels among customers within higher income and age brackets who use their account more.
+   
+   - **Validation:** Create four different visualizations in Power BI, three for each category (age, income and utilization ratio) and the last comparing these three attributes with existing and attrited customers.

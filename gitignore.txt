@@ -1,2 +1,4 @@
 __pycache__/
 kaggle.json
+python-version.txt
+requirements.txt
