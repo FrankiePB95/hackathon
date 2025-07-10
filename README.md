@@ -20,68 +20,75 @@ customer status
 - `average utilization ratio`: The average account usage ratio
 
 ## Business Requirements
-I will be focusing on 3 requirements:
+I will be focusing on 4 requirements:
 * 1. Is there a discrepancy between income levels of male and female customers, attrited and existing, and also consider the male and female ratio here.
 * 2. Is there a relationship between transaction amount, alongside transaction count between existing and attrited customer?
 * 3. Is there a large discrepancy between credit limit and account usage between existing and attrited customers?
-
+* 4. Is there a relationship between age, gender, income level and attrition?
 
 ## Hypothesis and how to validate?
+1. **Hypothesis:** There will be more female than male customers and of course this may look to increase attrition levels amongst females.
 
-**Hypothesis:** There will be more female than male customers and of course this may look to increase attrition levels amongst females.
+   - **Validation** Created a histogram that counts each customer's gender.
 
-   - **Validation** Created a clustered column chart comparing Total_Trans_Amt for attrited vs. existing customers using a custom visual. -------
+2. **Hypothesis:** There will be more middle aged account holders than younger or older. This may of course work to increase the attrition levels with this group 
 
-**Hypothesis:** There will be more middle aged account holders than younger or older. This may of coursework to increase the attrition levels with this group ----- add to visualization 
+   - **Validation** Created a comparative bar chart that plots ages of attrited customers next to existing customers.
 
+3. **Hypothesis:** Does tenure hold some relationship to account inactivity and might this relate to attrition?
 
-   - **Validation** Created a clustered column chart comparing Total_Trans_Amt for attrited vs. existing customers using a custom visual.
+   - **Validation** Created a line chart and bar chart next to each other for comparison that tenure and inactivity in months respectively.
 
-**Hypothesis:** Attrited customers will have generally lower income levels than existing customers and females will have more accounts than males.
+4. **Hypothesis:** There is a relationship between credit limit and utlization.
 
+   - **Validation** Created two dsitribution plots using bars. One to gauge credit limit and the other for utilization frequencies. 
 
-   - **Validation** Created a clustered column chart comparing Total_Trans_Amt for attrited vs. existing customers using a custom visual.
+5. **Hypothesis:** Attrited customers will have generally lower income levels than existing customers and females will have more accounts than males.
 
+   - **Validation** Created an interactive sunburst chart that compares income levels of attrited and existed male and female customers.
 
-1. **Hypothesis:** Attrited customers will have generally lower income levels than existing customers and females will have more accounts than males.
+6. **Hypothesis** Existing customers will have more frequent transactions of higher values.
 
+   - **Validation:** Created an interactive scatter plot graph plotting transaction amounts and their transaction counts for existing and attrited customers.
 
-   - **Validation** Created a clustered column chart comparing Total_Trans_Amt for attrited vs. existing customers using a custom visual.
+7. **Hypothesis:** Customer attrition is higher among clients with lower credit limits.
+   
+   - **Validation:** Created a parallel coordinates graph showing utilization ratio alongside credit limits between existed and attrited customers.
 
-2. **Hypothesis** Customer attrition is higher among clients with lower credit limits.
-   - **Validation:** Created a bar chart showing average Credit_Limit grouped by Attrition_Flag.
-
-3. **Hypothesis:** Attrition rates vary by marital status, with single customers having higher churn.
-   - **Validation:** Clustered bar chart of Attrition_Flag counts by Marital_Status.
-
-4. **Hypothesis:** Customers with lower education levels tend to churn more often than those with higher education levels.  
-   - **Validation:** Create a 100% stacked bar chart in Power BI showing the proportion of attrited versus existing customers for each education level to compare churn rates across education groups.
+8. **Hypothesis:** We will witness lower attrition levels among customers within higher income and age brackets who use their account more.
+   
+   - **Validation:** Create four different visualizations in Power BI, three for each category (age, income and utilization ratio) and the last comparing these three attributes with existing and attrited customers.
 
 ## Project Plan
 The project followed these steps:
-* 1. Data Extraction: Load the CSV dataset using pandas.
-* 2. Data Cleaning and Transformation: Checked for missing values, duplicates and ensured correct data types.
-* 3. Data visualisation: Used matplotlib, seaborn and plotly to explore relationships and patterns.
-* 4. Analysis and Interpretation: Each visualisation answered a business question and helped confirm or reject the hypothesis.
+* 1. Data Extraction: Downloaded the CSV dataset from Kaggle and load it using Pandas.
+* 2. Data Cleaning and Transformation: Checkd the dataset for missing values, duplicates and ensured correct data types, and created transformers using Feature-Engine that fit into a pipeline to then call later.
+3. Data loading: Extracted a sample dataset from the orginal using the previously created transformers fitted into a pipeline using SciKit-Learn to work with through the project. Created two random state samples, so as not to incur bias; one to work with in Jupyter and one for Power BI.
+* 3. Data visualization: Used matplotlib, seaborn and plotly to generate visualizations that allow for the exploration of relationships and patterns between data. Also created a dashboard using Power BI to help further interpret data.
+* 4. Analysis and Interpretation: Each visualization helped to prove or disprove a hypothesis. The visualisations also helped in answering our business requirements.
 
 ## The rationale to map the business requirements to the Data Visualisations
-I used a different type of visualisation for each of th business requirements. For each question I used:
-1. Boxplot for comparing the distribution of smoker vs non smoker in comparison to charges.
-2. Barchart to show regional averages.
-3. Scatterplot with trendline for analysing correlation of BMI and smoking against insurance charges.
-I chose those specific visualisations as it was easier to see the relationship between the different factors and insurance charges. Also, it was appropriate for the type of data that was given.
+I used a different type of visualization for each of the hypotheses, allowing for diversity across data, a different perspective, as well as a better way to depict certain observations. For instance, I used:
+1. Histogram to gauge gender distribution.
+2. Barchart to compare ages of attrited and existing customers.
+3. Line and bar charts to compare tenured months with inactive months.
+4. Frequency charts to compare credit limit and utilization distributions.
+5. Sunburst chart to compare the income levels of existed and attrited male and female customers.
+6. Scatter plot diagram to compare the transactions satisfied by existing and attrited customers, and their total amounts.
+7. Parallel coordinates diagram to compare credit utilization with credit limits of attrited and existing customers.
+8.
+9.
+10.
+11.
+There was a wealth of options available, such as radio graphs and heatmaps, but the visualizations I used proved more appropriate and ultimately allowed for observation and inspection of the data I looked to analyze. ------------
 
 ## Analysis techniques used
-* Descriptive statistics (describe(), groupby() methods)
+* Descriptive statistics to describe what was tkaing place within different visualizations
 * Boxplots and bar charts for comparison
 * Scatter plots for correlation
-* OLS trendline in Plotly for regression pattern detection
-**Limitations**: I would have hoped the numbers of existing customers and attrited customer were similar in some cases to draw different insights
-
-
-The dataset lacks variables like pre-existing conditions, income, or employment type, which could further explain insurance charges.
-**Alternative approaches**: Machine learning models could be used for prediction, but this was outside the scope of this exploratory analysis.
-**Use of AI tools**: ChatGPT was used to get help with coding issues, visualisation tweaks, and Markdown formatting.
+**Limitations**: I would have hoped the numbers of existing customers and attrited customer were similar in some cases to draw different more unbiased insights. 
+**Alternative approaches**: OLS trendline in Plotly for regression pattern detection.
+**Use of AI tools**: Copilot was used to help with coding issues and visualisations.
 
 ## Ethical considerations
 * This data did not include any personal identifiable information so there were no data privacy concerns.
@@ -101,48 +108,42 @@ through.
 * Explore more visualizations for further insights from their depictions.
 
 ## Main Data Analysis Libraries
-* pandas – for data loading, cleaning, and transformation
-df = pd.read_csv('bank-churners.csv')
-* matplotlib – for static plots
-plt.figure(plt.hist, crosstab, fix(ax1, ax2))
-* seaborn – for statistical visualisations
-sns.boxplot(data=df, x='smoker', y='charges')
-* plotly.express – for interactive charts
-px.scatter(df, x='bmi', y='charges', color='smoker', trendline='ols')
+* Pandas – for data loading, cleaning and transformation
+* MatPlotLib – for static plots
+* Seaborn – for statistical visualisations
+* Plotly – for interactive charts
+* Feature-Engine - for creating transformers
+* SciKit-Learn - for fitting the pipeline
 
 ## Reflection
-I feel it would have been better if the data stipulated that after a particular period of time, a customer became attrited and hold that parallel with existing customers. ---- in some cases, this is the assumption I went with
+I was pleased to take on this challenge and there are a few things I looked to reflect on. For instance:
 
------ I would have hoped the numbers of existing customers and attrited customer were similar in some cases to draw different insights,,,,  -----
+I feel it would have been easiler in there were similar numbers of attrited customers against existing customers. 
 
+Also, I noticed there seemed to be a huge discrepancy within the customer tenure category. This may have been due to outside factors such as are their credit plans and whether they simply left after a fixed term following a payment, for instance. 
 
+Further, I had considered whether existed customer numbers would have been higher along the high credit limit scale, but this didn't seem to be the case, and I am assuming it might be for a few reasons, including, for instance, customer risk in taking on more credit, and company risk in affording more credit to these customers. And also with some being potentially newer customers, they may be afforded lower credit limits.
 
-Working on this project was a great learning experience. At the beginning, I ran into a few bumps — like setting up the virtual environment and trying to get GitHub to stop asking me to log in every time I pushed something. It was a bit annoying, but after some trial and error (and help from ChatGPT), I managed to sort it all out.
+There were things I had to troubleshoot, such as coding issues, visualization issues, finding the right libraries, VS Code not loading, GitHub issues, amongst other things. Also, network connectivity presented difficulties, for intance, with my commit and push phase. In the future, I look to rectify this. 
 
-I also had to troubleshoot a few coding issues, especially when using Plotly. Sometimes the graph wouldn’t show or there were strange errors I didn’t understand at first. Each time, I took the time to dig into what was going wrong and learned a bit more about how things work in Python and Jupyter Notebooks.
-
-Throughout the project, I made sure to stay on track with the business goals and keep my code and markdown sections tidy and clear. If I were to improve anything, I’d maybe try to use even more visualisation types or dig deeper into prediction techniques. But overall, I’m happy with how the project turned out and I feel like I’ve come a long way from where I started.
+The project definitely kept me on my toes and presented many different challenges for me to overcome. Despite this, I worked to answer the business requirements and provide sound insights. I would indeed hope for more visualizations and more oberservation time. I'm pleased with the overal project and look forward to future challenges.
 
 ## Credits 
 ### Content 
 - **GitHub Copilot**  
 GitHub Copilot in VS Code allowed for better coding structure and syntax, feasible recommendations and the reduction of repetition. I found it extraordinary useful during the visualization process.
 
-  
-  sqqwdefrgthyjuhrgfedsc 
-  I used ChatGPT extensively to guide me through the project when I encountered issues. Specific examples include:
-  - Understanding how to structure markdown cells and write hypotheses and objectives.
+  I used Copilot to guide me through the project when I encountered issues. Specific examples include:
   - Troubleshooting errors such as:
-    - The `plotly` error due to a missing `nbformat` installation.
-    - A `SyntaxError` with no clear trace — eventually resolved by restarting VS Code.
-    - Problems with activating the virtual environment in the terminal.
+    - Syntax errors - fixes included rewriting code.
+    - Path errors - fixes included adding a module that helped better trace a path location.
   - Helping to format visualizations, like:
-    - Removing error bars from a seaborn bar plot.
-    - Adding a box around the legend in a Plotly scatter plot.
+    - Creating labels.
+    - Editing colours.
+    - Adding legends.
   - Explaining technical concepts including:
-    - What `groupby().mean().reset_index()` does.
-    - The difference between `sns.barplot()` and `plt.bar()`.
-    - The purpose and function of legends and trendlines in data visualisations.
+    - What `plt.show()` is used for.
+    - `Transformers` and `pipelines` and their purposes.
 
 ## Acknowledgements
 Thanks to:
