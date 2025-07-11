@@ -1,6 +1,6 @@
 # Project Credit Card Churn Analysis
 
-**Project Credit Card Churn Analysis** is a data analysis project focused on assessing which bank customers are likely to churn or become attrited so the bank can take proactive measures to retain them. Using a real-world dataset, this project investigates how account attributes (such as credit limit, tenure with company, income level and account inactivity) alongside more personal attributes such as age and gender may impact a customer churning. The analysis includes data cleaning, visualization, and predictive modeling to provide actionable insights for estimating healthcare expenses.
+**Project Credit Card Churn Analysis** is a data analysis project focused on assessing which bank customers are likely to churn or become attrited so the bank can take proactive measures to retain them. Using a real-world dataset, this project investigates how account attributes (such as credit limit, tenure with company, income level and account inactivity) alongside more personal attributes such as age and gender may impact a customer churning. The analysis includes data cleaning, visualization, and predictive modeling to provide actionable insights for deducing whether a customer is at risk of churning or not.
 
 # ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
